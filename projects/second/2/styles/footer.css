@@ -1,0 +1,159 @@
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 80px 130px 135px 130px;
+    background: url('../img/background/Wave.svg') no-repeat bottom;
+    background-size: cover;
+}
+
+.footer-socials-title,
+.footer-links-title {
+    font-size: 12px;
+    color: var(--color-gray-32);
+    font-family: var(--font-family-r);
+    letter-spacing: 2.5px;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.footer-socials-container {
+    margin-bottom: 40px;
+}
+
+.footer-socials-container img {
+    border-radius: 50%;
+    transition: var(--animation);
+}
+
+.footer-socials-container a img:hover {
+    background: var(--color-yellow-light);
+}
+
+.footer-socials-container a {
+    text-decoration: none;
+    outline: none;
+    margin-right: 37px;
+}
+
+.footer-socials-container a:last-child {
+    margin-right: 0;
+}
+
+.footer-socials-container a:focus img {
+    background: var(--color-yellow-light);
+
+}
+
+.footer-links-title {
+    margin-bottom: 16px;
+}
+
+.footer-link-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    grid-column-gap: 30px;
+    grid-row-gap: 16px;
+}
+
+.footer-link-container a {
+    text-decoration: none;
+    outline: none;
+    font-size: 14px;
+    font-family: var(--font-family-r);
+    color: var(--color-black);
+}
+
+.footer-link-container a:hover,
+.footer-link-container a:focus {
+    text-decoration: underline;
+}
+
+.footer-follow-email {
+    display: block;
+    color: var(--color-purple-dark);
+    font-family: var(--font-family-b);
+    font-size: 32px;
+    margin-bottom: 48px;
+}
+
+.footer-follow-title,
+.footer-feedback-title {
+    font-size: 12px;
+    color: var(--color-gray-32);
+    font-family: var(--font-family-r);
+    letter-spacing: 2.5px;
+    margin: 0;
+}
+
+.footer-feedback-title {
+    margin-bottom: 16px;
+}
+
+.footer-feedback-form div {
+    display: flex;
+}
+
+.footer-feedback-form div:first-child {
+    margin-bottom: 30px;
+}
+
+.footer-feedback-form input {
+    width: 270px;
+    height: 48px;
+    font-size: 18px;
+    color: var(--color-black);
+    font-family: var(--font-family-r);
+    border: none;
+    background: rgba(194, 194, 194, 0.24);
+    border-radius: 16px;
+    padding: 8px 16px;
+    outline: none;
+}
+
+.footer-feedback-form input:hover,
+.footer-feedback-form input:focus {
+    background: rgba(194, 194, 194, 0.418);
+}
+
+.footer-feedback-form input:first-child {
+    margin-right: 30px;
+}
+
+.footer-feedback-form input::placeholder {
+    font-family: var(--font-family-r);
+    color: var(--color-black);
+    font-size: 18px;
+}
+
+.footer-feedback-form textarea {
+    font-size: 18px;
+    width: 370px;
+    height: 80px;
+    resize: none;
+    margin-right: 30px;
+    color: var(--color-purple-dark);
+    font-family: var(--font-family-r);
+    border: 2px solid rgba(108, 92, 231, 0.404);
+    background: rgba(194, 194, 194, 0.24);
+    border-radius: 16px;
+    padding: 16px;
+    outline: none;
+}
+
+.footer-feedback-form textarea:hover,
+.footer-feedback-form textarea:focus {
+    background: rgba(194, 194, 194, 0.418);
+    border: 2px solid rgba(108, 92, 231, 0.651);
+}
+
+.footer-feedback-form textarea::placeholder {
+    font-size: 18px;
+    color: var(--color-purple-dark);
+    font-family: var(--font-family-b);
+}
+
+.footer-form-button {
+    width: 170px;
+    height: 80px;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../img/telegram.png" type="image/png">
+</head>
+
+<body>
+    <div class="container mt-5 pt-3 pb-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border border-2 rounded-4">
+                <form id="tg" class="p-4">
+                    <div class="p-3 mb-3 bg-primary text-white text-center rounded-2">Форма відправки</div>
+                    <div class="d-flex flex-row-reverse">
+                        <a href="../../index.html">
+                            <button type="button" class="btn-close" aria-label="Close"></button>
+                        </a>
+                        Назад -
+                    </div>
+                    <h3 class="pb-3 pt-3 display-6 text-center">Відправте свої контактні дані,<br>і я вам обов'язково
+                        передзвоню
+                    </h3>
+                    <div class="form-group">
+                        <label class="form-label">Ім'я</label>
+                        <input type="text" class="form-control" name="name" minlength="2" maxlength="18"
+                            placeholder="Ваше ім'я" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" minlength="8" maxlength="50"
+                            placeholder="example@gmail.com" required>
+                    </div>
+                    <!-- 
+                <div class="form-group">
+                    <label class="form-label">Пароль</label>
+                    <input type="password" class="form-control" name="password" minlength="4" maxlength="18" required>
+                </div> -->
+
+                    <div class="form-group">
+                        <label class="form-label">Телефон</label>
+                        <input type="tel" class="form-control" name="tel" minlength="10"
+                            placeholder="Ваш контактний номер" required>
+                    </div>
+
+
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                            value="Передзвоніть мені" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Передзвоніть мені
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                            value="Напишіть мені на почту">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Напишіть мені на почту
+                        </label>
+                    </div>
+
+
+                    <div class="form-group mt-3">
+                        <label class="form-label">Ваші побажання</label>
+                        <textarea class="form-control" id="textarea1" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Дозвіл на обробку персональних даних
+                        </label>
+                    </div>
+
+
+                    <div class="alert alert-success mt-3" role="alert" id="success" style="display: none;"></div>
+
+                    <button type="submit" class="btn btn-outline-primary mt-4">Відправити</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        const TOKEN = "5517092531:AAF9uMv9cVnz4qQpGacYf0I6CPJWX-jDSz8";
+        const CHAT_ID = "-1001594556023";
+        const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+        const success = document.getElementById('success');
+
+        document.getElementById('tg').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let message = `<b>Заявка с сайту!</b>\n`;
+            message += `<b>Відправник: </b> ${this.name.value}\n`;
+            message += `<b>Почта: </b> ${this.email.value}\n`;
+            // message += `<b>Пароль: </b> ${this.password.value}\n`;
+            message += `<b>Телефон: </b> ${this.tel.value}\n`;
+            message += `<b>Зворотній зв'язок: </b> ${this.flexRadioDefault.value}\n`;
+            message += `<b>Фідбек: </b> ${this.textarea1.value}`;
+            axios.post(URI_API, {
+                chat_id: CHAT_ID,
+                parse_mode: 'html',
+                text: message
+            })
+                .then((res) => {
+                    this.name.value = "";
+                    this.email.value = "";
+                    // this.password.value = "";
+                    this.tel.value = "";
+                    this.flexRadioDefault.value = "";
+                    this.textarea1.value = "";
+                    success.innerHTML = "Повідомлення надіслено!";
+                    success.style.display = "block";
+                })
+                .catch((err) => {
+                    console.warn(err);
+                })
+                .finally(() => {
+                    console.log('Кінець');
+                })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+p {
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.main-background-image1,
+.main-background-image2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -2;
+}
+
+.main-background-image3 {
+    background: url('../img/background/WaveMobile.svg') repeat-x;
+    width: 100%;
+    height: 450px;
+    position: absolute;
+    z-index: -3;
+    display: none;
+}
+
+.main-background-image1 {
+    width: 46vw;
+    opacity: 0.4;
+}
+
+.main-background-image2 {
+    top: 18px;
+}
+
+.main-arrow-down {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+
+}
+
+@keyframes ArrowDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    5% {
+        transform: translateY(-10px);
+    }
+
+    10% {
+        transform: translateY(10px);
+    }
+
+    15% {
+        transform: translateY(-5px);
+    }
+
+    20% {
+        transform: translateY(0);
+    }
+}
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 64px;
+}
+
+.main-text-title {
+    color: var(--color-black);
+    font-family: var(--font-family-b);
+    font-size: 96px;
+    letter-spacing: -3px;
+}
+
+.main-text-fine {
+    position: relative;
+    color: var(--color-red-dark);
+    text-shadow: 0px 4px 0px #FFFFFF;
+}
+
+.main-text-fine::after {
+    position: absolute;
+    content: '';
+    display: block;
+    z-index: -1;
+    left: -5%;
+    bottom: 0;
+    width: 110%;
+    height: 51px;
+    border-radius: 999px;
+    background: var(--color-green-light);
+}
+
+.main-text-subtitle {
+    color: var(--color-black);
+    font-family: var(--font-family-b);
+    font-size: 64px;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 30px;
+    width: 70%;
+}
+
+.main-grid img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.main-grid-text1 {
+    font-family: var(--font-family-r);
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.main-grid-text2 {
+    font-family: var(--font-family-r);
+    grid-row: 1 / 2;
+    grid-column: 4 / -1;
+}
+
+.main-grid-image1 {
+    grid-row: 2 / 4;
+    grid-column: 1 / 2;
+}
+
+.main-grid-image2 {
+    grid-row: 1 / 3;
+    grid-column: 2 / 4;
+}
+
+.main-grid-image3 {
+    grid-row: 2 / 3;
+    grid-column: 4 / 5;
+}
+
+.main-grid-image4 {
+    grid-row: 2 / 3;
+    grid-column: 5 / 6;
+}
+
+.main-grid-image5 {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+
+.main-grid-image6 {
+    grid-row: 3 / 4;
+    grid-column: 3 / 5;
+}
+
+.main-grid-image7 {
+    grid-row: 3 / 4;
+    grid-column: 5 / 6;
+}
+
+.main-button {
+    margin-top: 40px;
+    width: 270px;
+    height: 82px;
+}
+
+/*  DEKSTOP  */
+@media (max-width: 1100px) {
+    .main-background-image1 {
+        width: 46vw;
+    }
+
+    .main-background-image2 {
+        width: 12vw;
+    }
+
+    .main-text-title {
+        font-size: 8vw;
+    }
+
+    .main-text-subtitle {
+        font-size: 5vw;
+    }
+
+    .main-text-fine::after {
+        height: 47%;
+    }
+
+    .main-grid {
+        width: 70vw;
+        grid-gap: 3vw;
+    }
+}
+
+/*  TAB  */
+@media (max-width: 768px) {
+    .main-grid {
+        width: 95vw;
+    }
+}
+
+/*  MOBILE  */
+@media (max-width: 600px) {
+    .main {
+        overflow: hidden;
+    }
+
+    .main-background-image1 {
+        width: 70vw;
+    }
+
+    .main-background-image2 {
+        width: 25vw;
+    }
+
+    .main-background-image3 {
+        display: initial;
+    }
+
+    .main-text {
+        padding-bottom: 24px;
+    }
+
+    .main-text-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 15vw;
+    }
+
+    .main-text-title span {
+        font-family: var(--font-family-m);
+    }
+
+    .main-text-subtitle {
+        font-size: 7vw;
+        margin-top: 16px;
+        font-family: var(--font-family-m);
+    }
+
+    .main-grid {
+        margin-top: 24px;
+        width: 120vw;
+    }
+
+    .main-grid-text1,
+    .main-grid-text2 {
+        display: none;
+    }
+
+    .main-button {
+        width: 150px;
+        height: 60px;
+        font-size: 18px;
+    }
+
+    .main-arrow-down {
+        display: flex;
+    }
+
+    .main-arrow-down img {
+        animation: ArrowDown 4s ease-in-out .5s infinite;
+    }
+}
